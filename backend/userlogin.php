@@ -25,9 +25,9 @@ while ($rows = mysqli_fetch_assoc($sql)) {
 	}
 
 	else {
-
+include 'template/header.php';
     echo 'Invalid password. <br>';
-
+include 'template/footer.php';
 	} 
 
 
