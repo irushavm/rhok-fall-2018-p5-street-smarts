@@ -16,7 +16,7 @@ Password: <input type="password" name="password"><br>
 
 Do you agree to our Terms of Service? <input type='checkbox' name='tos'>
 
-<input type="submit">
+<input type="submit" value="Submit"> 
 
 </form>
 

@@ -7,7 +7,7 @@ include 'inc/connect.php';
 $username = $_POST['username'];
 
 
-$sql = mysqli_query($connection, "SELECT * FROM users WHERE user='$username'");
+$sql = mysqli_query($connection, "SELECT * FROM users WHERE name='$username'");
 
 
 $password = 'password';
