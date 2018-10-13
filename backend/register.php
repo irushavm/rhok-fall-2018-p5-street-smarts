@@ -19,3 +19,9 @@ Do you agree to our Terms of Service? <input type='checkbox' name='tos'>
 <input type="submit">
 
 </form>
+
+<?php
+
+include 'template/footer.php'
+
+?>
