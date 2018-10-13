@@ -14,7 +14,7 @@ export default props => (
         alt="streetsmarts logo"
       />
       <H2 pt={5} pb={4}>
-        Street Smart
+        Page 2
       </H2>
       <Text pb={5}>
         For more info, go to the{' '}
