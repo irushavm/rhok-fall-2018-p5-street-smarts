@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import Welcome from '../components/Welcome';
+import FrontPage from '../components/FrontPage';
 const Home = () => {
   return (
     <div>
-      <Welcome />
+      <FrontPage />
     </div>
   );
 };
