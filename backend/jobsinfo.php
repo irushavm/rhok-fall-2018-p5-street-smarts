@@ -7,9 +7,14 @@ $username = $_SESSION['username'];
 include 'inc/connect.php';
 include 'template/header.php'
 
-echo "<a href="login.php">Login</a>"
-echo "<a href="register.php">Register</a>"
+$user_sql = mysqli_query($connection, "SELECT * FROM jobs");
 
+
+$user_resultsarr = mysqli_fetch_assoc($user_sql);
+
+
+
+json_encode($user_resultsarr);
 
 include 'template/footer.php'
 
