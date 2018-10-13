@@ -1,8 +1,10 @@
 <?php
 
-session_start();
-error_reporting(E_ALL);
-$username = $_SESSION['username']; 
+//session_start();
+//error_reporting(E_ALL);
+//$username = $_SESSION['username']; 
+
+$username = $_POST['username'];
 
 include 'inc/connect.php';
 
