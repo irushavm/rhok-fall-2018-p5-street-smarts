@@ -1,4 +1,4 @@
-<form action='usersettings.php' method='post'>
+<form action='userlogin.php' method='post'>
 
 Username: <input type='text' class='inputs' name='username'><br>
 

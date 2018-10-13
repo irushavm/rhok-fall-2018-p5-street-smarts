@@ -18,7 +18,7 @@ while ($rows = mysqli_fetch_assoc($sql)) {
 
 	$_SESSION['username'] = "$username";
 
-	header("Location: index.php");
+	header("Location: userinfo.php");
 
 	exit;
 
