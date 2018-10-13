@@ -17,9 +17,7 @@ $username = $_POST['username'];
 $password = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
 
 
-$sql = "INSERT INTO usertable (username, password, points) VALUES ('$username', '$password')";
-
-
+$sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
 
 	$hash = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
 

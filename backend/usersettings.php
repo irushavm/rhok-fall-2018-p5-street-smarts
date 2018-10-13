@@ -12,16 +12,13 @@ $sql = mysqli_query($connection, "SELECT * FROM users WHERE user='$username'");
 
 $password = 'password';
 
-
-
 while ($rows = mysqli_fetch_assoc($sql)) {
 
 	if (password_verify($_POST['post_password'], $rows[$password])) {
 
-
 	$_SESSION['username'] = "$username";
 
-	header("Location: test.php");
+	header("Location: index.php");
 
 	exit;
 
