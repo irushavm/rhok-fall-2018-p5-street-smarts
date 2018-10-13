@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import ResourcesPage from '../components/ResourcesPage'
 const Resources = () => {
   return (
     <div>
-      <p>Resources!</p>
+      <ResourcesPage/>
     </div>
   );
 };
