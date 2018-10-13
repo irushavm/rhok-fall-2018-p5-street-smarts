@@ -6,12 +6,6 @@ import TermsAndConditions from '../../resources/termsAndService'
 export default class WelcomePage extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			name: '',
-			email: ''
-		}
-
-		// this.onInputChange = this.onInputChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
 	onSubmit({target}) {
