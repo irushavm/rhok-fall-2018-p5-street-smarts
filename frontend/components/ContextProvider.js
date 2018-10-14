@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import mockedData from '../resources/mockData'
 
 export const AppContext = React.createContext();
 
 class ContextProvider extends Component {
-  state = {
-    isLoggedIn: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      ...mockedData
+    };
+  }
 
   handleLogin = () => {
     this.setState({ isLoggedIn: true });

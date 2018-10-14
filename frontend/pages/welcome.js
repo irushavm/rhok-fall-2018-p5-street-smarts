@@ -1,7 +1,7 @@
-import WelcomeStart from '../components/welcomePage/WelcomeStart'
+import WelcomePage from '../components/WelcomePage'
 
 export default (props) => (
 	<div>
-		<WelcomeStart {...props}/>
+		<WelcomePage {...props}/>
 	</div>
 )
