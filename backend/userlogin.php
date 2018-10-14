@@ -1,5 +1,5 @@
 <?php
-
+/*
 	session_start();
 
 include 'inc/connect.php';
@@ -18,7 +18,8 @@ while ($rows = mysqli_fetch_assoc($sql)) {
 
 	$_SESSION['username'] = "$username";
 
-	header("Location: userinfo.php");
+	// header("Location: userinfo.php");
+	echo "Success!";
 
 	exit;
 
@@ -32,7 +33,9 @@ include 'template/footer.php';
 
 
 }
+*/
 
+echo "Login Disabled."
 
 
 ?>

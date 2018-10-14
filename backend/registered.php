@@ -1,5 +1,5 @@
 <?php
-
+/*
 
 include 'inc/connect.php';
 
@@ -28,7 +28,9 @@ $sql = "INSERT INTO users (name, password) VALUES ('$username', '$password')";
 
 		mysqli_query($connection, $sql);
 
-		header("Location: usersettings.php");
+		// header("Location: usersettings.php");
+
+		echo "Success!";
 
 		} 
 
@@ -38,7 +40,9 @@ echo "Registration failed"
 
 	}
 
+*/
 
+	echo "Registration Disabled."
 
 
 
