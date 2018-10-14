@@ -3,23 +3,21 @@ import React, { Component } from 'react';
 export const AppContext = React.createContext();
 
 class ContextProvider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false
-    };
-  }
-
-  toggleLoggedIn = () => {
-    console.log('toggling something!');
-    this.setState({ isLoggedIn: !this.state.isLoggedIn });
+  state = {
+    isLoggedIn: false
   };
+
+  handleLogin = () => {
+    this.setState({ isLoggedIn: true });
+    setTimeout(() => console.log('hooray!', this.state), 1000);
+  };
+
   render() {
     return (
       <AppContext.Provider
         value={{
           state: this.state,
-          toggleLoggedIn: this.toggleLoggedIn
+          handleLogin: this.handleLogin
         }}
       >
         {this.props.children}

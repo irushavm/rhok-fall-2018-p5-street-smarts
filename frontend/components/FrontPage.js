@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import ContextProvider, { AppContext } from './ContextProvider';
 
 const Container = styled.div`
   background-color: #fff;
@@ -77,55 +78,68 @@ export default class FrontPage extends Component {
   };
   render() {
     return (
-      <Container>
-        <div className="logoAndBackground">
-          <img src="https://picsum.photos/300/300" />
-        </div>
+      <ContextProvider>
+        <AppContext.Consumer>
+          {context => (
+            <Container>
+              <div className="logoAndBackground">
+                <img src="https://picsum.photos/300/300" />
+              </div>
 
-        <div className="loginpanel">
-          <form noValidate autoComplete="off">
-            <TextField
-              label="Email"
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange('email')}
-              margin="normal"
-              variant="outlined"
-            />
-            <TextField
-              label="Password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleChange('password')}
-              margin="normal"
-              variant="outlined"
-            />
+              <div className="loginpanel">
+                <form noValidate autoComplete="off">
+                  <TextField
+                    label="Email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.handleChange('email')}
+                    margin="normal"
+                    variant="outlined"
+                  />
+                  <TextField
+                    label="Password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handleChange('password')}
+                    margin="normal"
+                    variant="outlined"
+                  />
 
-            {/* <input type="password" /> */}
-            <Link to="/welcome">
-              <a>
-                <Button variant="raised" type="submit">
-                  Log In
-                </Button>
-              </a>
-            </Link>
-            <Link to="/welcome">
-              <a>
-                <Button variant="raised" type="submit">
-                  First-Time Log In
-                </Button>
-              </a>
-            </Link>
-          </form>
-        </div>
+                  <Link href="/start-search">
+                    <a>
+                      <Button
+                        variant="contained"
+                        type="submit"
+                        onClick={context.handleLogin}
+                      >
+                        Log In
+                      </Button>
+                    </a>
+                  </Link>
+                  <Link href="/welcome?type=candidate">
+                    <a>
+                      <Button
+                        variant="contained"
+                        type="submit"
+                        onClick={context.handleLogin}
+                      >
+                        First-Time Log In
+                      </Button>
+                    </a>
+                  </Link>
+                </form>
+              </div>
 
-        <div className="aboutusvideo">
-          <Link to="/about">
-            <a>About Us</a>
-          </Link>
-          <div className="videoDiv">[video goes here]</div>
-        </div>
-      </Container>
+              <div className="aboutusvideo">
+                <Link href="/about">
+                  <a>About Us</a>
+                </Link>
+                <div className="videoDiv">[video goes here]</div>
+              </div>
+            </Container>
+          )}
+        </AppContext.Consumer>
+      </ContextProvider>
     );
   }
 }
