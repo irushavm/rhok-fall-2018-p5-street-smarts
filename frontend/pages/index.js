@@ -1,8 +1,11 @@
-import Index from '../src/pages/Index'
-import Page	from '../src/containers/Page'
+import Link from 'next/link';
+import FrontPage from '../components/FrontPage';
+const Home = () => {
+  return (
+    <div>
+      <FrontPage />
+    </div>
+  );
+};
 
-export default () => (
-	<Page name="Index">
-    	<Index />
-    </Page>
-)
+export default Home;
