@@ -75,6 +75,7 @@ export default class UserView extends Component {
   render() {
     // const { type } = this.props.query;
     const { people, isCandidatesPage } = this.state;
+    console.log(this.props);
     return (
       <ContextProvider>
         <AppContext.Consumer>
@@ -109,7 +110,7 @@ export default class UserView extends Component {
                             </Typography>
                             <Typography
                               className="subtitle"
-                              variant="subtitle3"
+                              variant="subtitle2"
                               color="textSecondary"
                             >
                               {isCandidatesPage
