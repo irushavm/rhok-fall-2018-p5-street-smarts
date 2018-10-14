@@ -52,6 +52,7 @@ class Nav extends Component {
     if (window.location.pathname !== '/') {
       this.setState({ accountMenuVisible: true });
     }
+    setTimeout(this.setState(this.state), 1000);
   }
 
   render() {
@@ -59,7 +60,7 @@ class Nav extends Component {
       <ContextProvider>
         <AppContext.Consumer>
           {context => {
-            console.log(JSON.stringify(context));
+            // console.log(JSON.stringify(context));
 
             return (
               <AppBar position="static">
@@ -89,8 +90,7 @@ class Nav extends Component {
                       </Link>
                     </NavLinks>
                     {/* {context.state.isLoggedIn && ( */}
-                    {/* {this.state.accountMenuVisible && ( */}
-                    {true && (
+                    {this.state.accountMenuVisible && (
                       <div className="menuButton">
                         <IconButton onClick={this.handleMenu} color="inherit">
                           <AccountCircle />
