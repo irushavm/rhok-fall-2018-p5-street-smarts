@@ -1,9 +1,11 @@
-import Resources from '../src/pages/Resources'
-import Page	from '../src/containers/Page'
+import Link from 'next/link';
+import ResourcesPage from '../components/ResourcesPage'
+const Resources = () => {
+  return (
+    <div>
+      <ResourcesPage/>
+    </div>
+  );
+};
 
-
-export default () => (
-	<Page name="Resources">
-    	<Resources />
-    </Page>
-)
+export default Resources;
