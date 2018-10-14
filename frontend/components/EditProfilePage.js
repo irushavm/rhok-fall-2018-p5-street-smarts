@@ -38,8 +38,14 @@ const Container = styled.div`
     }
 .checkboxes{
   display: grid;
-  grid-auto-flow:column;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(5, 100px);
   width: auto;
+}
+.checkboxes2{
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
 }
 `;
 
@@ -153,10 +159,12 @@ export default class EditProfilePage extends Component {
                 label="Temporary"
               />
             </div>
-            <FormControlLabel
-              control={<Checkbox value="checkedC" />}
-              label="Are you willing to relocate?"
-            />
+            <div className="checkboxes2">
+              <FormControlLabel
+                control={<Checkbox value="checkedC" />}
+                label="Are you willing to relocate?"
+              />
+            </div>
             <p>Tell us about yourself</p>
             <TextField
               id="outlined-multiline-static"
