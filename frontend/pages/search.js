@@ -1,11 +1,19 @@
-import Link from 'next/link';
+import StartSearchPage from '../components/StartSearchPage';
 import SearchPage from '../components/SearchPage';
-const Search = () => {
+const Search = (props) => {
+  if(props.query.type === undefined) {
+    return (
+      <div>
+        <StartSearchPage />
+      </div>
+    );
+  }
   return (
     <div>
-      <SearchPage />
+      <SearchPage {...props} />
     </div>
   );
 };
-
-export default Search;
+    
+    export default Search;
+    

@@ -1,19 +1,21 @@
 import { Component } from 'react';
-import Form from '../styles/Form';
+import Form from './styles/Form';
 import Router from 'next/router';
-import TermsAndConditions from '../../resources/termsAndService';
+import TermsAndConditions from '../resources/termsAndService';
 
 export default class WelcomePage extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  onSubmit({ target }) {
+  onSubmit(event) {
+    event.preventDefault()
+    const {name, email} = event.target.elements
     Router.push({
-      pathname: '/welcome/complete',
+      pathname: '/user/edit',
       query: {
-        name: target.elements.name.value,
-        email: target.elements.email.value
+        name: name.value,
+        email: email.value
       }
     });
   }

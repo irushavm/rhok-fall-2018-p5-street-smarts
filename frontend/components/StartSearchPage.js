@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import Router from 'next/router';
 
 const Container = styled.div`
   background-color: #fff;
@@ -57,11 +58,35 @@ export default class StartSearchPage extends Component {
       [event.target.name]: event.target.value
     });
   };
+
+  onSubmit(event) {
+    event.preventDefault();
+    const {sponsorsCity, jobsCity} = event.target.elements;
+    if(jobsCity === undefined) {
+      Router.push({
+        pathname: '/search',
+        query: {
+          type: 'sponsor',
+          city: sponsorsCity.value
+        }
+      });
+    }
+    else if(sponsorsCity === undefined) {
+      Router.push({
+        pathname: '/search',
+        query: {
+          type: 'job',
+          city: jobsCity.value
+        }
+      });
+    }
+    
+  }
   render() {
     return (
       <Container>
         <div className="loginpanel">
-          <form noValidate autoComplete="off">
+          <form noValidate autoComplete="off" onSubmit={this.onSubmit}>
             <h2>View Sponsors by City</h2>
             <Select
               className="dropdown"
@@ -82,8 +107,10 @@ export default class StartSearchPage extends Component {
               Search
             </Button>
 
-            <span />
-
+          </form>
+          <span />
+          <form noValidate autoComplete="off" onSubmit={this.onSubmit}>
+          
             <h2>View Jobs by City</h2>
 
             <Select

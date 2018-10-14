@@ -105,7 +105,7 @@ export default class FrontPage extends Component {
                     variant="outlined"
                   />
 
-                  <Link href="/start-search">
+                  <Link href="/search">
                     <a>
                       <Button
                         variant="contained"

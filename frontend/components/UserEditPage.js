@@ -10,6 +10,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import Router from 'next/router';
 
 const Container = styled.div`
   background-color: #fff;
@@ -49,10 +50,10 @@ const Container = styled.div`
 }
 `;
 
-export default class EditProfilePage extends Component {
+export default class UserEditPage extends Component {
   state = {
-    name: "",
-    email: "",
+    name: this.props.query.name,
+    email: this.props.query.email,
     phone: "",
     city: "",
     industries: ["management", "natural sciences", "arts & entertainment"],
@@ -61,6 +62,16 @@ export default class EditProfilePage extends Component {
     agency: "",
     aboutyourself: ""
   };
+
+  onSubmit(event) {
+    event.preventDefault()
+    // const {name, email, phone, city, industry, contractFT, contractPT,contractCas, contractPerm, contractTemp, willingToRelocate } = event.target.elements
+
+    Router.push({
+      pathname: '/search',
+    });
+  }
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
@@ -74,7 +85,7 @@ export default class EditProfilePage extends Component {
           <p>Edit Profile</p>
         </div>
         <div>
-          <form noValidate autoComplete="off">
+          <form noValidate autoComplete="off" onSubmit={this.onSubmit}>
             <TextField
               label="Full Name"
               type="name"
@@ -139,29 +150,29 @@ export default class EditProfilePage extends Component {
             <p>What type(s) of contract are you interested in?</p>
             <div className="checkboxes">
               <FormControlLabel
-                control={<Checkbox value="checkedC" />}
+                control={<Checkbox value="checkedC" name="contractFT"/>}
                 label="Full-time"
               />
               <FormControlLabel
-                control={<Checkbox value="checkedC" />}
+                control={<Checkbox value="checkedC" name="contractPT" />}
                 label="Part-time"
               />
               <FormControlLabel
-                control={<Checkbox value="checkedC" />}
+                control={<Checkbox value="checkedC" name="contractCas" />}
                 label="Casual"
               />
               <FormControlLabel
-                control={<Checkbox value="checkedC" />}
+                control={<Checkbox value="checkedC" name="contractPerm" />}
                 label="Permanent"
               />
               <FormControlLabel
-                control={<Checkbox value="checkedC" />}
+                control={<Checkbox value="checkedC" name="contractTemp"  />}
                 label="Temporary"
               />
             </div>
             <div className="checkboxes2">
               <FormControlLabel
-                control={<Checkbox value="checkedC" />}
+                control={<Checkbox value="checkedC" name="willingToRelocate" />}
                 label="Are you willing to relocate?"
               />
             </div>
