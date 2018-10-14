@@ -106,23 +106,27 @@ export default class EditProfilePage extends Component {
                 <em>-Select an agency-</em>
               </MenuItem>
               {this.state.agencies.map(agency => (
-                <MenuItem value={agency}>{agency}</MenuItem>
+                <MenuItem key={agency} value={agency}>
+                  {agency}
+                </MenuItem>
               ))}
             </Select>
             <p>Which industry are you interested in?</p>
             <Select
-              value={this.state.agency}
+              value={this.state.industry}
               onChange={this.handleChange}
               inputProps={{
-                name: "agency",
-                id: "agency"
+                name: "industry",
+                id: "industry"
               }}
             >
               <MenuItem value="">
                 <em>No preference</em>
               </MenuItem>
-              {this.state.industries.map(agency => (
-                <MenuItem value={agency}>{agency}</MenuItem>
+              {this.state.industries.map(industry => (
+                <MenuItem key={industry} value={industry}>
+                  {industry}
+                </MenuItem>
               ))}
             </Select>
 
