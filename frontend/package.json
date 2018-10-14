@@ -1,48 +1,118 @@
 {
-  "name": "styled-starter-basic",
+  "name": "sick-fits-frontend",
   "version": "1.0.0",
-  "description": "Starter Kit with React, Next.js and Styled System to get projects up and running with a design theme, built-in styleguide and test suite configuration",
-  "main": "src/App.js",
+  "description": "Sick Fits! An example React, GraphQL, Next and Apollo",
+  "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 7777",
     "build": "next build",
     "start": "next start",
-    "test": "mocha test/test",
-    "export": "next export"
+    "test": "NODE_ENV=test jest --watch",
+    "heroku-postbuild": "next build"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
-    "babel-plugin-styled-components": "^1.5.1",
-    "catalog": "^3.5.5",
-    "grid-styled": "^5.0.2",
-    "next": "^6.1.1",
-    "path-match": "^1.2.4",
+    "apollo-boost": "^0.1.16",
+    "apollo-client": "^2.4.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-styled-components": "^1.7.1",
+    "date-fns": "^2.0.0-alpha.7",
+    "downshift": "^2.2.3",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.9.2",
+    "lodash.debounce": "^4.0.8",
+    "next": "^7.0.0",
+    "next-with-apollo": "^3.1.3",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.6.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-live": "^1.11.0",
-    "styled-components": "^3.4.10",
-    "styled-system-html": "^2.0.1"
+    "react": "^16.5.2",
+    "react-adopt": "^0.6.0",
+    "react-apollo": "^2.2.1",
+    "react-dom": "^16.5.2",
+    "react-stripe-checkout": "^2.6.3",
+    "react-transition-group": "^2.5.0",
+    "styled-components": "^3.4.9",
+    "waait": "^1.0.2"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.0.0",
-    "selenium-webdriver": "^3.6.0",
-    "webpack": "^3.10.0"
+    "@hint/configuration-development": "^1.1.1",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "casual": "^1.5.19",
+    "enzyme-to-json": "^3.3.4",
+    "graphql-tools": "^4.0.0",
+    "hint": "^3.4.10",
+    "jest": "^23.6.0",
+    "jest-transform-graphql": "^2.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johnpolacek/styled-starter-basic.git"
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ],
+    "transform": {
+      "\\.(gql|graphql)$": "jest-transform-graphql",
+      ".*": "babel-jest"
+    }
   },
-  "keywords": [
-    "react",
-    "styleguide",
-    "design-system",
-    "next.js",
-    "styled-components"
-  ],
-  "author": "John Polacek",
-  "license": "ISC",
-  "homepage": "https://johnpolacek.github.io/styled-starter-basic"
+  "//": "This is our babel config, I prefer this over a .babelrc file",
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "production": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "test": {
+        "presets": [
+          [
+            "next/babel",
+            {
+              "preset-env": {
+                "modules": "commonjs"
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      }
+    }
+  }
 }
